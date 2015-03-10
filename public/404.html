@@ -12,7 +12,7 @@
 </head>
 <body><div class="reveal"><div class="slides">
 
-<section data-background-image="https://upload.wikimedia.org/wikipedia/commons/1/17/BlankMap-World-noborders.png">
+<section>
 	<p style="font-size:150%; color:darkred">
     <i class="fa fa-exclamation-triangle"></i> Not Found
   </p>
@@ -38,6 +38,10 @@
 		history: false,
 		center: true,
 		transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+		parallaxBackgroundImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/2000px-World_map_blank_without_borders.svg.png',
+		parallaxBackgroundSize: '2000px 1112px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+
 		dependencies: [
 			{ src: 'https://rawgit.com/hakimel/reveal.js/master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
 			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
