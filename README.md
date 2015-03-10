@@ -29,14 +29,14 @@ Renders
 
 ```js
 {
-  "help_url": "api/",
-  "version_url": "version/",
   "about_url": "/",
-  "full_data_json_url": "full-json/",
-  "full_data_jsonp_url": "full-jsonp/{callback}",
+  "help_url": "api/",
   "data_json_url": "json/",
   "data_jsonp_url": "jsonp/{callback}",
-  "stats_url": "stats/"
+  "full_data_json_url": "full-json/",
+  "full_data_jsonp_url": "full-jsonp/{callback}",
+  "stats_url": "stats/",
+  "version_url": "version/"
 }
 ```
 
