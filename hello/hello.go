@@ -4,33 +4,65 @@ import (
     "fmt"
     "net/http"
     "time"
+    "io/ioutil"
 )
 
-const VERSION     = "1.9.1"
+
+func check(e error) {
+    if e != nil {
+        panic(e)
+    }
+}
+
+func arrayToString(intArray []byte, e error) string {
+  check(e)
+  var str string
+  for _, value := range intArray {
+    str += string(int(value))
+  }
+  return str
+}
+
+
+
+const VERSION     = "2.1.1"
 const NAME        = "gipjson"
 const DESCRIPTION = "GeoIP"
 const API_STUB    = ""
-var   help_usage      = 0
-var   json_usage      = 0
-var   jsonlong_usage  = 0
-var   stats_usage     = 0
-var   version_usage   = 0
-var   started         = time.Now()
+var   about_usage      = 0
+var   help_usage       = 0
+var   json_usage       = 0
+var   fulljson_usage   = 0
+var   stats_usage      = 0
+var   version_usage    = 0
+var   started          = time.Now()
+var   page404a, err404 = ioutil.ReadFile("public/404.html")
+var   page404          = arrayToString(page404a, err404)
+var   indexA, errIndex = ioutil.ReadFile("public/index.html")
+var   indexHtml        = arrayToString(indexA, errIndex)
 
 func init() {
-  http.HandleFunc(API_STUB+"/api", func(w http.ResponseWriter, r *http.Request) {
+  http.HandleFunc(API_STUB+"/", func(w http.ResponseWriter, r *http.Request) {
+    if r.URL.Path == "/" {
+      about_usage = about_usage + 1
+      fmt.Fprint(w, indexHtml)
+    } else {
+      w.WriteHeader(http.StatusNotFound)
+      fmt.Fprint(w, page404)
+    }
+  })
+  http.HandleFunc(API_STUB+"/api/", func(w http.ResponseWriter, r *http.Request) {
     help_usage = help_usage + 1
     http.ServeFile(w, r, "public/api.json")
   })
-  http.HandleFunc(API_STUB+"/jsonlong", jsonLongHandler)
-  http.HandleFunc(API_STUB+"/json", jsonHandler)
-  http.HandleFunc(API_STUB+"/json/", jsonpHandler)
-  http.HandleFunc(API_STUB+"/jsonlong/", jsonpLongHandler)
-  http.HandleFunc(API_STUB+"/version", versionHandler)
-  http.HandleFunc(API_STUB+"/public/", func(w http.ResponseWriter, r *http.Request) { http.ServeFile(w, r, r.URL.Path[1:]) })
-  http.HandleFunc(API_STUB+"/stats", statsHandler)
-  http.HandleFunc(API_STUB+"/", func(w http.ResponseWriter, r *http.Request) {
-    http.ServeFile(w, r, "public/index.html")
+  http.HandleFunc(API_STUB+"/stats/", statsHandler)
+  http.HandleFunc(API_STUB+"/version/", versionHandler)
+  http.HandleFunc(API_STUB+"/json/", jsonHandler)
+  http.HandleFunc(API_STUB+"/full-json/", fullJsonHandler)
+  http.HandleFunc(API_STUB+"/jsonp/", jsonpHandler)
+  http.HandleFunc(API_STUB+"/full-jsonp/", fullJsonpHandler)
+  http.HandleFunc(API_STUB+"/public/", func(w http.ResponseWriter, r *http.Request) {
+    http.ServeFile(w, r, r.URL.Path[1:])
   })
 }
 
@@ -39,12 +71,13 @@ func statsHandler(w http.ResponseWriter, r *http.Request) {
   w.Header().Set("Content-Type", "application/json")
   fmt.Fprint(w, "{ ")
   fmt.Fprint(w, "\"since\": \"",   started.Format("2006-01-02 15:04:05"), "\"")
+  fmt.Fprint(w, ", \"about\":",    about_usage)
   fmt.Fprint(w, ", \"help\":",     help_usage)
   fmt.Fprint(w, ", \"json\":",     json_usage)
-  fmt.Fprint(w, ", \"jsonlong\":", jsonlong_usage)
+  fmt.Fprint(w, ", \"full-json\":", fulljson_usage)
   fmt.Fprint(w, ", \"stats\":",    stats_usage)
   fmt.Fprint(w, ", \"version\":",  version_usage)
-  fmt.Fprint(w, ", \"total\":",    help_usage + json_usage + jsonlong_usage + version_usage + stats_usage)
+  fmt.Fprint(w, ", \"total\":",    about_usage + help_usage + json_usage + fulljson_usage + version_usage + stats_usage)
   fmt.Fprint(w, " }")
 }
 
@@ -59,21 +92,21 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
     jsonData(w, r)
 }
 
-func jsonLongHandler(w http.ResponseWriter, r *http.Request) {
+func fullJsonHandler(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Content-Type", "application/json")
     jsonlongData(w, r)
 }
 
 func jsonpHandler(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Content-Type", "application/json")
-    fmt.Fprint(w, ";", r.URL.Path[len(API_STUB)+6:], "(")
+    fmt.Fprint(w, ";", r.URL.Path[len(API_STUB)+7:], "(")
     jsonData(w, r)
     fmt.Fprint(w, ");")
 }
 
-func jsonpLongHandler(w http.ResponseWriter, r *http.Request) {
+func fullJsonpHandler(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Content-Type", "application/json")
-    fmt.Fprint(w, "; ", r.URL.Path[len(API_STUB)+10:], "(")
+    fmt.Fprint(w, "; ", r.URL.Path[len(API_STUB)+12:], "(")
     jsonlongData(w, r)
     fmt.Fprint(w, ");")
 }
@@ -105,7 +138,7 @@ func jsonData(w http.ResponseWriter, r *http.Request) {
 }
 
 func jsonlongData(w http.ResponseWriter, r *http.Request) {
-  jsonlong_usage = jsonlong_usage + 1
+  fulljson_usage = fulljson_usage + 1
 
   fmt.Fprint(w, "{ ")
 

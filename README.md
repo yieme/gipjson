@@ -29,14 +29,14 @@ Renders
 
 ```js
 {
-  "help_url": "/api",
-  "version_url": "/version",
+  "help_url": "api/",
+  "version_url": "version/",
   "about_url": "/",
-  "geodata_long_json_url": "/jsonlong",
-  "geodata_long_jsonp_url": "/jsonlong/{callback}",
-  "geodata_json_url": "/json",
-  "geodata_jsonp_url": "/json/{callback}",
-  "stats_url": "/stats"
+  "full_data_json_url": "full-json/",
+  "full_data_jsonp_url": "full-jsonp/{callback}",
+  "data_json_url": "json/",
+  "data_jsonp_url": "jsonp/{callback}",
+  "stats_url": "stats/"
 }
 ```
 
