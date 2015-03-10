@@ -1,14 +1,20 @@
-# go-google-geoip
+# gipjson
 
-Google App Engine GO Lang GeoIP server
+Uberfast GeoIP JSON server
+
+- Written in GO
+- Google GeoIP data
+- JSON & JSONP formats
+- Self documenting API
+- Usage Statistics
 
 ## Install
 
 Clone repo
 
 ```sh
-git clone https://github.com/yieme/go-google-geoip.git
-cd go-google-geoip
+git clone https://github.com/yieme/gipjson.git
+cd gipjson
 ```
 
 ## Run locally
