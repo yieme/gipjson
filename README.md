@@ -48,6 +48,9 @@ Edit ```app.yaml``` and replace ```gipjson``` with your application name
 goapp deploy
 ```
 
+## Note
+
+GeoIP data other than country as ```zz``` is only available once the application has been deployed to Google App Engine.
 
 ## License
 
