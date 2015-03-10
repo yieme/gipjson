@@ -6,7 +6,7 @@ import (
     "time"
 )
 
-const VERSION     = "1.8.7"
+const VERSION     = "1.9.1"
 const NAME        = "gipjson"
 const DESCRIPTION = "GeoIP"
 const API_STUB    = ""
@@ -127,5 +127,6 @@ func jsonlongData(w http.ResponseWriter, r *http.Request) {
     fmt.Fprint(w, ", \"latlong\": \"", latlong, "\"")
   }
 
+  fmt.Fprint(w, ", \"ua\": \"", r.UserAgent(), "\"")
   fmt.Fprint(w, " }")
 }
