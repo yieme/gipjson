@@ -1,4 +1,4 @@
-# gipjson
+# gipjson <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/200px-World_map_blank_without_borders.svg.png" style="float:right" />
 
 Uberfast GeoIP JSON server
 
