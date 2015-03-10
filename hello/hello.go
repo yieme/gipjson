@@ -25,8 +25,8 @@ func arrayToString(intArray []byte, e error) string {
 
 
 
-const VERSION     = "2.1.3"
 const NAME        = "gipjson"
+const VERSION     = "2.1.4"
 const DESCRIPTION = "GeoIP"
 const API_STUB    = ""
 var   about_usage      = 0
@@ -70,14 +70,16 @@ func statsHandler(w http.ResponseWriter, r *http.Request) {
   stats_usage = stats_usage + 1
   w.Header().Set("Content-Type", "application/json")
   fmt.Fprint(w, "{ ")
-  fmt.Fprint(w, "\"since\": \"",   started.Format("2006-01-02 15:04:05"), "\"")
-  fmt.Fprint(w, ", \"about\":",    about_usage)
-  fmt.Fprint(w, ", \"help\":",     help_usage)
-  fmt.Fprint(w, ", \"json\":",     json_usage)
+  fmt.Fprint(w, "\"service\": \"",  NAME, "\"")
+  fmt.Fprint(w, ", \"version\":",   VERSION)
+  fmt.Fprint(w, ", \"since\": \"",  started.Format("2006-01-02 15:04:05"), "\"")
+  fmt.Fprint(w, ", \"about\":",     about_usage)
+  fmt.Fprint(w, ", \"help\":",      help_usage)
+  fmt.Fprint(w, ", \"json\":",      json_usage)
   fmt.Fprint(w, ", \"full-json\":", fulljson_usage)
-  fmt.Fprint(w, ", \"stats\":",    stats_usage)
-  fmt.Fprint(w, ", \"version\":",  version_usage)
-  fmt.Fprint(w, ", \"total\":",    about_usage + help_usage + json_usage + fulljson_usage + version_usage + stats_usage)
+  fmt.Fprint(w, ", \"stats\":",     stats_usage)
+  fmt.Fprint(w, ", \"version\":",   version_usage)
+  fmt.Fprint(w, ", \"total\":",     about_usage + help_usage + json_usage + fulljson_usage + version_usage + stats_usage)
   fmt.Fprint(w, " }")
 }
 
