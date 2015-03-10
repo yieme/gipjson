@@ -26,7 +26,7 @@ func arrayToString(intArray []byte, e error) string {
 
 
 const NAME        = "gipjson"
-const VERSION     = "2.2.1"
+const VERSION     = "2.2.2"
 const DESCRIPTION = "GeoIP"
 const API_STUB    = ""
 var   error_usage      = 0
