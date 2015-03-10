@@ -50,7 +50,7 @@ goapp deploy
 
 ## Note
 
-GeoIP data other than country as ```zz``` is only available once the application has been deployed to Google App Engine.
+GeoIP data other than country as ```ZZ``` is only available once the application has been deployed to Google App Engine.
 
 ## License
 
