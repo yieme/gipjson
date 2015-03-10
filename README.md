@@ -14,7 +14,7 @@ cd go-google-geoip
 ## Run locally
 
 ```sh
-goapp serve ./
+goapp serve
 ```
 
 ## Usage
@@ -45,7 +45,7 @@ Renders
 Edit ```app.yaml``` and replace ```gipjson``` with your application name
 
 ```sh
-goapp deploy ./
+goapp deploy
 ```
 
 
