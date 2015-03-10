@@ -26,9 +26,10 @@ func arrayToString(intArray []byte, e error) string {
 
 
 const NAME        = "gipjson"
-const VERSION     = "2.1.4"
+const VERSION     = "2.2.1"
 const DESCRIPTION = "GeoIP"
 const API_STUB    = ""
+var   error_usage      = 0
 var   about_usage      = 0
 var   help_usage       = 0
 var   json_usage       = 0
@@ -47,6 +48,7 @@ func init() {
       about_usage = about_usage + 1
       fmt.Fprint(w, indexHtml)
     } else {
+      error_usage = error_usage + 1
       w.WriteHeader(http.StatusNotFound)
       fmt.Fprint(w, page404)
     }
@@ -70,10 +72,10 @@ func statsHandler(w http.ResponseWriter, r *http.Request) {
   stats_usage = stats_usage + 1
   w.Header().Set("Content-Type", "application/json")
   fmt.Fprint(w, "{ ")
-  fmt.Fprint(w, "\"service\": \"",  NAME, "\"")
-  fmt.Fprint(w, ", \"version\":",   VERSION)
+  fmt.Fprint(w, "\"service\": \"",  NAME, "/", VERSION, "\"")
   fmt.Fprint(w, ", \"since\": \"",  started.Format("2006-01-02 15:04:05"), "\"")
   fmt.Fprint(w, ", \"about\":",     about_usage)
+  fmt.Fprint(w, ", \"error\":",     error_usage)
   fmt.Fprint(w, ", \"help\":",      help_usage)
   fmt.Fprint(w, ", \"json\":",      json_usage)
   fmt.Fprint(w, ", \"full-json\":", fulljson_usage)
