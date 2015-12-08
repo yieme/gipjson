@@ -2,7 +2,7 @@
   "project_name": "gipjson",
   "project_description": "GO Google GeoIP uber-server",
   "show_files": [
-    "hello/hello.go",
+    "gipjson/gipjson.go",
     "app.yaml"
   ]
 }
