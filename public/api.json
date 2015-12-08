@@ -2,9 +2,9 @@
   "about_url": "about/",
   "help_url": "api/",
   "data_json_url": "json/",
-  "data_jsonp_url": "jsonp/{callback}",
+  "data_jsonp_url": "jsonp/?callback=cb",
   "full_data_json_url": "full-json/",
-  "full_data_jsonp_url": "full-jsonp/{callback}",
+  "full_data_jsonp_url": "full-jsonp/?callback=cb",
   "stats_url": "stats/",
   "version_url": "version/"
 }

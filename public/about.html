@@ -50,9 +50,9 @@
 	      <tr><td></td><td></td></tr>
 	      <tr><td><i class="fa fa-code"></i></td><td> <a href="#/1/1">api/</a></td></tr>
 	      <tr><td><i class="fa fa-globe"></i></td><td> <a href="#/1/2">json/</td></tr>
-	      <tr><td><i class="fa fa-globe"></i></td><td> <a href="#/1/3">json?callback=</td></tr>
+	      <tr><td><i class="fa fa-globe"></i></td><td> <a href="#/1/3">json/?callback=cb</td></tr>
 	      <tr><td><i class="fa fa-globe"></i></td><td> <a href="#/1/4">full-json/</td></tr>
-	      <tr><td><i class="fa fa-globe"></i></td><td> <a href="#/1/5">full-json?callback=</td></tr>
+	      <tr><td><i class="fa fa-globe"></i></td><td> <a href="#/1/5">full-json/?callback=cb</td></tr>
 				<tr><td><i class="fa fa-bar-chart-o"></i></td><td> <a href="#/1/6">stats/</td></tr>
 				<tr><td><i class="mega-octicon octicon-versions"></i></td><td> <a href="#/1/7">version/</td></tr>
 	      <tr><td></td><td></td></tr>
@@ -73,9 +73,9 @@
 		  "about_url": "/",
 		  "help_url": "api/",
 		  "data_json_url": "json/",
-		  "data_jsonp_url": "json?callback=",
+		  "data_jsonp_url": "json/?callback=cb",
 		  "full_data_json_url": "full-json/",
-		  "full_data_jsonp_url": "full-jsonp?callback=",
+		  "full_data_jsonp_url": "full-json/?callback=cb",
 		  "stats_url": "stats/",
 		  "version_url": "version/"
 		}
@@ -106,7 +106,7 @@
 		Small footprint optimized
 
 		```sh
-		curl http://uber-server-87917.appspot.com/json?callback=cb
+		curl http://uber-server-87917.appspot.com/json/?callback=cb
 		```
 
 		Produces
@@ -115,7 +115,7 @@
 		cb({"c":"US","C":"middleton","r":"id","ll":"43.706828,-116.620136","t":"2015-12-08 03:37:47.266841754"})
 		```
 
-		[Try it here](/jsonp?callback=cb)
+		[Try it here](/json/?callback=cb)
 	</section>
 	<section data-markdown>
 		## Full GeoData as JSON
@@ -143,7 +143,7 @@
 		## Full GeoData as JSONP
 
 		```sh
-		curl http://uber-server-87917.appspot.com/full-jsonp?callback=cb
+		curl http://uber-server-87917.appspot.com/full-json/?callback=cb
 		```
 
 		Produces
@@ -159,7 +159,7 @@
 		})
 		```
 
-		[Try it here](/full-jsonp?callback=cb)
+		[Try it here](/full-json/?callback=cb)
 	</section>
 	<section data-markdown>
 		## Basic Usage Statistics
@@ -172,7 +172,7 @@
 
 		```js
 		{
-			"service": "gipjson/4.0.1",
+			"service": "gipjson/4.0.2",
 			"since": "2015-03-10 05:42:43",
 			"about": 1,
 			"error": 0,
@@ -199,7 +199,7 @@
 		Produces
 
 		```sh
-		4.0.1
+		4.0.2
 		```
 
 		[Try it here](/version/)
