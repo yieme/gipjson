@@ -1,5 +1,5 @@
 {
-  "about_url": "/",
+  "about_url": "about/",
   "help_url": "api/",
   "data_json_url": "json/",
   "data_jsonp_url": "jsonp/{callback}",

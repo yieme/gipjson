@@ -36,7 +36,7 @@ Start [AppEngine Project](https://console.developers.google.com/project), ex: ``
 
 
 > Note: GeoIP data other than country as ```ZZ``` is available once the project has been deployed.
-> So you will see ```{"c":"ZZ"}``` instead of ```{"c":"US","ci":"middleton","r":"id","ll":"43.706828,-116.620136"}```
+> So you will see ```{"c":"ZZ","t":"2015-12-08 03:37:47.266841754}``` instead of ```{"c":"US","ci":"middleton","r":"id","ll":"43.706828,-116.620136","t":"2015-12-08 03:37:47.266841754"}```
 
 
 ## Deploy to App Engine
@@ -56,7 +56,7 @@ curl http://uber-server-87917.appspot.com/json/
 Produces
 
 ```js
-{"c":"US","ci":"middleton","r":"id","ll":"43.706828,-116.620136"}
+{"c":"US","C":"middleton","r":"id","ll":"43.706828,-116.620136"}
 ```
 
 
@@ -66,14 +66,14 @@ Produces
 Built in help
 
 ```sh
-curl http://localhost:8080/api
+curl http://localhost:8080/api/
 ```
 
 Renders
 
 ```js
 {
-  "about_url": "/",
+  "about_url": "about/",
   "help_url": "api/",
   "data_json_url": "json/",
   "data_jsonp_url": "jsonp/{callback}",
@@ -82,6 +82,7 @@ Renders
   "stats_url": "stats/",
   "version_url": "version/"
 }
+
 ```
 ## License
 
