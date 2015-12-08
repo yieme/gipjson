@@ -10,7 +10,7 @@ import (
 )
 
 const NAME         = "gipjson"
-const VERSION      = "4.0.0"
+const VERSION      = "4.0.1"
 const DESCRIPTION  = "Uberfast GeoIP JSON server"
 const API_STUB     = ""
 const ALLOW_DOMAIN = "localhost"

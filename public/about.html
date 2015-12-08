@@ -143,23 +143,23 @@
 		## Full GeoData as JSONP
 
 		```sh
-		curl http://uber-server-87917.appspot.com/full-jsonp/callback
+		curl http://uber-server-87917.appspot.com/full-jsonp?callback=cb
 		```
 
 		Produces
 
 		```js
-		; callback({
+		cb({
 			"country": "US",
 			"city": "middleton",
 			"region": "id",
 			"latlong": "43.706828,-116.620136",
 			"ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36",
 			"timestamp":"2015-12-08 03:37:47.266841754 +0000 UTC"
-		});
+		})
 		```
 
-		[Try it here](/full-jsonp/callback)
+		[Try it here](/full-jsonp?callback=cb)
 	</section>
 	<section data-markdown>
 		## Basic Usage Statistics
@@ -172,7 +172,7 @@
 
 		```js
 		{
-			"service": "gipjson/4.0.0",
+			"service": "gipjson/4.0.1",
 			"since": "2015-03-10 05:42:43",
 			"about": 1,
 			"error": 0,
@@ -199,7 +199,7 @@
 		Produces
 
 		```sh
-		4.0.0
+		4.0.1
 		```
 
 		[Try it here](/version/)
