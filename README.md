@@ -1,27 +1,65 @@
 # gipjson <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/200px-World_map_blank_without_borders.svg.png" align="right" />
 
-Uberfast GeoIP JSON server
+GO Google GeoIP uber-server
 
-- Written in GO
-- Google GeoIP data
+- [GO](http://golang.org) and [Google](http://google.com) [X-AppEngine-*](http://vikinghammer.com/2013/01/29/appengine-http-headers/) headers for uber-speed
+- [Google](https://appengine.google.com/) data accuracy
 - JSON & JSONP formats
 - Self documenting API
 - Usage Statistics
 
+## Demo
+
+[Click Here](http://gipjson.appspot.com)
+
 ## Install
 
-Clone repo
+1. Install [AppEngine SDK for Go](https://cloud.google.com/appengine/downloads#Google_App_Engine_SDK_for_Go)
+2. Clone repo
 
 ```sh
 git clone https://github.com/yieme/gipjson.git
 cd gipjson
 ```
 
+3. Edit ```app.yaml``` and replace ```gipjson``` with your **uber-server-87917** Project ID
+
 ## Run locally
 
 ```sh
 goapp serve
 ```
+
+## Run in cloud
+
+Start [AppEngine Project](https://console.developers.google.com/project), ex: ```uber-server-87917```
+
+
+> Note: GeoIP data other than country as ```ZZ``` is available once the project has been deployed.
+> So you will see ```{"c":"ZZ"}``` instead of ```{"c":"US","ci":"middleton","r":"id","ll":"43.706828,-116.620136"}```
+
+
+## Deploy to App Engine
+
+```sh
+goapp deploy
+```
+
+## Short form GeoData as JSON
+
+Small footprint optimized
+
+```sh
+curl http://uber-server-87917.appspot.com/json/
+```
+
+Produces
+
+```js
+{"c":"US","ci":"middleton","r":"id","ll":"43.706828,-116.620136"}
+```
+
+
 
 ## Usage
 
@@ -45,19 +83,6 @@ Renders
   "version_url": "version/"
 }
 ```
-
-## Deploy to App Engine
-
-Edit ```app.yaml``` and replace ```gipjson``` with your application name
-
-```sh
-goapp deploy
-```
-
-## Note
-
-GeoIP data other than country as ```ZZ``` is only available once the application has been deployed to Google App Engine.
-
 ## License
 
 MIT
