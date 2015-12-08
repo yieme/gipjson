@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Forbidden</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.min.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/white.css" id="theme">
+</head>
+<body><div class="reveal"><div class="slides">
+
+<section>
+	<p style="font-size:150%; color:darkred">
+    <i class="fa fa-exclamation-triangle"></i> Forbidden
+  </p>
+
+	<table>
+		<tbody>
+			<tr><td></td><td></td></tr>
+			<tr><td><i class="fa fa-home"></i></td><td> <a href="/#/">Home</a></td></tr>
+			<tr><td><i class="fa fa-code"></i></td><td> <a href="/#/1">API</a></td></tr>
+			<tr><td><i class="fa fa-github" style="padding-left:0.1em"></i></td><td>
+				<a href="http://github.com/yieme/gipjson"> Fork me on GitHub</a>
+			</td></tr>
+      <tr><td></td><td></td></tr>
+		</tbody>
+	</table>
+</section>
+
+</div></div>
+<script src="//cdn.jsdelivr.net/g/reveal.js@3.0.0(lib/js/head.min.js+js/reveal.min.js)"></script>
+<script>
+		Reveal.initialize({ // Full list of configuration options available at: https://github.com/hakimel/reveal.js#configuration
+		controls: false,
+		progress: false,
+		history: false,
+		center: true,
+		transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+		parallaxBackgroundImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/2000px-World_map_blank_without_borders.svg.png',
+		parallaxBackgroundSize: '2000px 1112px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+
+		dependencies: [
+      { src: '//cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true }
+		]
+	});
+</script></body></html>

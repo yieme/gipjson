@@ -5,8 +5,14 @@ import (
     "net/http"
     "time"
     "io/ioutil"
+//    "log"
 )
 
+const NAME         = "gipjson"
+const VERSION      = "2.3.0"
+const DESCRIPTION  = "Uberfast GeoIP JSON server"
+const API_STUB     = ""
+const ALLOW_DOMAIN = "localhost"
 
 func check(e error) {
     if e != nil {
@@ -24,11 +30,6 @@ func arrayToString(intArray []byte, e error) string {
 }
 
 
-
-const NAME        = "gipjson"
-const VERSION     = "2.2.2"
-const DESCRIPTION = "GeoIP"
-const API_STUB    = ""
 var   error_usage      = 0
 var   about_usage      = 0
 var   help_usage       = 0
@@ -39,8 +40,12 @@ var   version_usage    = 0
 var   started          = time.Now()
 var   page404a, err404 = ioutil.ReadFile("public/404.html")
 var   page404          = arrayToString(page404a, err404)
+var   page403a, err403 = ioutil.ReadFile("public/403.html")
+var   page403          = arrayToString(page403a, err403)
 var   indexA, errIndex = ioutil.ReadFile("public/index.html")
 var   indexHtml        = arrayToString(indexA, errIndex)
+
+
 
 func init() {
   http.HandleFunc(API_STUB+"/", func(w http.ResponseWriter, r *http.Request) {
@@ -68,6 +73,8 @@ func init() {
   })
 }
 
+
+
 func statsHandler(w http.ResponseWriter, r *http.Request) {
   stats_usage = stats_usage + 1
   w.Header().Set("Content-Type", "application/json")
@@ -85,35 +92,55 @@ func statsHandler(w http.ResponseWriter, r *http.Request) {
   fmt.Fprint(w, " }")
 }
 
+
+
 func versionHandler(w http.ResponseWriter, r *http.Request) {
   version_usage = version_usage + 1
   w.Header().Set("Content-Type", "text/plain")
   fmt.Fprint(w, VERSION)
 }
 
+
+
 func jsonHandler(w http.ResponseWriter, r *http.Request) {
+  if pseudoCorsCheck(w, r) {
     w.Header().Set("Content-Type", "application/json")
     jsonData(w, r)
+  }
 }
+
+
 
 func fullJsonHandler(w http.ResponseWriter, r *http.Request) {
+  if pseudoCorsCheck(w, r) {
     w.Header().Set("Content-Type", "application/json")
     jsonlongData(w, r)
+  }
 }
 
+
+
 func jsonpHandler(w http.ResponseWriter, r *http.Request) {
+  if pseudoCorsCheck(w, r) {
     w.Header().Set("Content-Type", "application/json")
     fmt.Fprint(w, ";", r.URL.Path[len(API_STUB)+7:], "(")
     jsonData(w, r)
     fmt.Fprint(w, ");")
+  }
 }
 
+
+
 func fullJsonpHandler(w http.ResponseWriter, r *http.Request) {
+  if pseudoCorsCheck(w, r) {
     w.Header().Set("Content-Type", "application/json")
     fmt.Fprint(w, "; ", r.URL.Path[len(API_STUB)+12:], "(")
     jsonlongData(w, r)
     fmt.Fprint(w, ");")
+  }
 }
+
+
 
 func jsonData(w http.ResponseWriter, r *http.Request) {
   json_usage = json_usage + 1
@@ -141,6 +168,8 @@ func jsonData(w http.ResponseWriter, r *http.Request) {
   fmt.Fprint(w, "}")
 }
 
+
+
 func jsonlongData(w http.ResponseWriter, r *http.Request) {
   fulljson_usage = fulljson_usage + 1
 
@@ -166,4 +195,32 @@ func jsonlongData(w http.ResponseWriter, r *http.Request) {
 
   fmt.Fprint(w, ", \"ua\": \"", r.UserAgent(), "\"")
   fmt.Fprint(w, " }")
+}
+
+
+
+func pseudoCorsCheck(w http.ResponseWriter, r *http.Request) bool {
+/*  refer := r.Referer()
+  log.Println(refer)
+  domainLen := len(ALLOW_DOMAIN)
+  log.Println(ALLOW_DOMAIN)
+  log.Println(domainLen)
+  allow1 := "http://"  + ALLOW_DOMAIN
+  allow2 := "https://" + ALLOW_DOMAIN
+  log.Println(allow1)
+  log.Println(refer[0:len(allow1)])
+  log.Println(allow2)
+  log.Println(refer[0:len(allow2)])
+  switch true {
+  case refer[0:len(allow1)] == allow1:
+    return true
+  case refer[0:len(allow2)] == allow2:
+    return true
+  default:
+    error_usage = error_usage + 1
+    w.WriteHeader(http.StatusForbidden)
+    fmt.Fprint(w, page403)
+    return false
+  } */
+  return true
 }
