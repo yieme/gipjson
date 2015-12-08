@@ -6,12 +6,12 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/octicons/2.2.0/octicons.css">
-	<link rel="stylesheet" href="https://rawgit.com/scottdejonge/Map-Icons/master/css/map-icons.css">
-	<link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/css/reveal.css">
-	<link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/css/theme/white.css" id="theme">
-	<link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/lib/css/zenburn.css">
+	<link rel="stylesheet" href="//cdn.rawgit.com/scottdejonge/Map-Icons/v3.0.0/dist/css/map-icons.min.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.min.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/white.css" id="theme">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/lib/css/zenburn.css">
 	<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
 	<link rel='apple-touch-icon' type='image/png' href='/favicon.ico'>
 </head>
@@ -63,7 +63,7 @@
 		## API as JSON
 
 		```sh
-		curl http://yourapp.appspot.com/api/
+		curl http://uber-server-87917.appspot.com/api/
 		```
 
 		Produces API JSON data:
@@ -89,7 +89,7 @@
 		Small footprint optimized
 
 		```sh
-		curl http://yourapp.appspot.com/json/
+		curl http://uber-server-87917.appspot.com/json/
 		```
 
 		Produces
@@ -106,7 +106,7 @@
 		Small footprint optimized
 
 		```sh
-		curl http://yourapp.appspot.com/jsonp/cb
+		curl http://uber-server-87917.appspot.com/jsonp/cb
 		```
 
 		Produces
@@ -121,7 +121,7 @@
 		## Full GeoData as JSON
 
 		```sh
-		curl http://yourapp.appspot.com/json/
+		curl http://uber-server-87917.appspot.com/json/
 		```
 
 		Produces
@@ -142,7 +142,7 @@
 		## Full GeoData as JSONP
 
 		```sh
-		curl http://yourapp.appspot.com/full-jsonp/callback
+		curl http://uber-server-87917.appspot.com/full-jsonp/callback
 		```
 
 		Produces
@@ -163,7 +163,7 @@
 		## Basic Usage Statistics
 
 		```sh
-		curl http://yourapp.appspot.com/stats/
+		curl http://uber-server-87917.appspot.com/stats/
 		```
 
 		Produces
@@ -189,7 +189,7 @@
 		## Service Version
 
 		```sh
-		curl http://yourapp.appspot.com/version/
+		curl http://uber-server-87917.appspot.com/version/
 		```
 
 		Produces
@@ -224,25 +224,25 @@
 </section>
 
 
-</div></div><script type="text/javascript" src="https://rawgit.com/hakimel/reveal.js/master/lib/js/head.min.js"></script>
-<script src="https://rawgit.com/hakimel/reveal.js/master/js/reveal.js"></script><script>
+</div></div>
+<script src="//cdn.jsdelivr.net/g/reveal.js@3.0.0(lib/js/head.min.js+js/reveal.min.js)"></script><script>
 		Reveal.initialize({ // Full list of configuration options available at: https://github.com/hakimel/reveal.js#configuration
 		controls: true,
 		progress: true,
 		history: true,
 		center: true,
 
-		parallaxBackgroundImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/2000px-World_map_blank_without_borders.svg.png',
+		parallaxBackgroundImage: '//upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/2000px-World_map_blank_without_borders.svg.png',
 		parallaxBackgroundSize: '2000px 1112px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
 
 		transition: 'slide', // none/fade/slide/convex/concave/zoom
 		dependencies: [
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/zoom-js/zoom.js', async: true },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/notes/notes.js', async: true }
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true }
 		]
 	});
 </script></body></html>

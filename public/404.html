@@ -6,9 +6,9 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/css/reveal.css">
-	<link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/css/theme/white.css" id="theme">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.min.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/white.css" id="theme">
 </head>
 <body><div class="reveal"><div class="slides">
 
@@ -30,8 +30,9 @@
 	</table>
 </section>
 
-</div></div><script type="text/javascript" src="https://rawgit.com/hakimel/reveal.js/master/lib/js/head.min.js"></script>
-<script src="https://rawgit.com/hakimel/reveal.js/master/js/reveal.js"></script><script>
+</div></div>
+<script src="//cdn.jsdelivr.net/g/reveal.js@3.0.0(lib/js/head.min.js+js/reveal.min.js)"></script>
+<script>
 		Reveal.initialize({ // Full list of configuration options available at: https://github.com/hakimel/reveal.js#configuration
 		controls: false,
 		progress: false,
@@ -43,12 +44,12 @@
 		parallaxBackgroundSize: '2000px 1112px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
 
 		dependencies: [
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/zoom-js/zoom.js', async: true },
-			{ src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/notes/notes.js', async: true }
+      { src: '//cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true },
+			{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true }
 		]
 	});
 </script></body></html>
